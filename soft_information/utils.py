@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""A set of functions that make it easy to play with soft information"""
+"""A set of functions that make it easy to play with soft inforamtion"""
 
 import numpy as np
 from numpy import pi, exp, sqrt, log
@@ -80,6 +80,20 @@ def logprob_distance(xa, ya, xb, yb, measured_dist, std):
     """
     points_dist = dist(xa, ya, xb, yb)
     return log_normal(points_dist, measured_dist, std)
+
+def logprob_velocity(xa,ya,xb,yb,mesured_velocity,std):
+    """
+    
+    Args:
+    mesured_velocity: mesured velocity of the agent
+    xa: abscissa of previous point 
+    ya: ordinante of previous point
+    xb: abscissa of previous point 
+    yb: ordinate of previous point
+    """
+    points_velocity= velocity(xa,ya,xb,yb)
+    return log_normal(points_velocity,mesured_velocity,std)
+        
 
 
 def make_logprob_angle(idx_a, idx_b, idx_c, measured_angle, std):
