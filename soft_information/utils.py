@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""A set of functions that make it easy to play with soft inforamtion"""
+"""A set of functions that make it easy to play with soft information"""
 
 import numpy as np
 from numpy import pi, exp, sqrt, log
