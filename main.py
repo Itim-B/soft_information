@@ -22,9 +22,15 @@ TKI_Principal = Tk( )
 plan = Canvas ( TKI_Principal , height = 500 , width = 500 )
 plan.pack()
 print(test)
+c,d=np.shape(positions.round())# récupère le nombre de set de coordonnées (donc le nombre de balise)
+
+
 for i in range (a):
     for j in range (b):
         if test[i,j]==1:
-            plan.create_rectangle(w*j/a,h*i/b,w*(j+1)/a,h*(i+1)/b,fill='red')
+            plan.create_rectangle(w*j/a,h*i/b,w*(j+1)/a,h*(i+1)/b,fill='red')# crée les rectangles correspondants aux murs
+for k in range (c):
+    plan.create_rectangle(positions.round()[k,0],positions.round()[k,1],positions.round()[k,0]+w/a,positions.round()[k,1]+h/b,fill='green')# crée les points représentant les agents
 
 TKI_Principal.mainloop ( )
+# problème au niveau des echelles puisque le canvas fait 500x500 alors que les coordonnées vont de 0 à 2
