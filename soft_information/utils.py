@@ -145,6 +145,15 @@ def make_logprob_distance(idx_a, idx_b, measured_dist, std):
 
     return func
 
+def make_logprob_vitesse(x,y,x_precedent,y_precedent):
+    distance = dist(x,y,x_precedent,y_precedent)
+    vitesse = distance/delta_t
+    if vitesse <= 6 :
+        return log(1/7)
+    if vitesse > 6 : 
+        return log((1/7)*exp(-vitesse+6))
+    
+
 
 def make_logprob_position(idx, measured_x, measured_y, std):
 
